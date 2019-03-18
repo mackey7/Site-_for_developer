@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 
-const Plan = (image) => {
+const Plan = (props) => {
 
     return (
 
 
         <div className="flatViews__left">
-            <img className="project-img" src={image.image} alt="project" />
+            <img className="project-img" src={props.image.image} alt="project" />
         </div>
 
     )

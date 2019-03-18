@@ -8,10 +8,15 @@ const Buttons = () => {
 
 
         <div className="buttons">
-            <Button text='Parter Lewy' />
-            <Button text='Parter Prawy' />
-            <Button text='Piętro Lewy' />
-            <Button text='Piętro Prawe' />
+            <div className="buttons-row">
+                <Button text='Parter Lewy' />
+                <Button text='Parter Prawy' />
+            </div>
+            <div className="buttons-row">
+                <Button text='Piętro Lewy' />
+                <Button text='Piętro Prawe' />
+            </div>
+
         </div>
 
     )
