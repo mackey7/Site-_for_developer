@@ -1,7 +1,7 @@
 import { SWITCH_VIEW } from '../actions/actions-type/actions-type';
 import { flatViewsDate } from '../api/flatViewsDate'
 
-const initState = {
+export const initState = {
     flatViewsDate: flatViewsDate,
     singleFlatViewsDate: [{
         id: "pal",
@@ -45,16 +45,19 @@ const initState = {
 
 }
 
-export const flatVewsReducer = (state = initState, action) => {
+const flatVewsReducer = (state = initState, action) => {
     switch (action.type) {
         case SWITCH_VIEW: {
             const newSingleFlatViewsDate = state.flatViewsDate.find(item => action.payload === item.id);
             return {
-                ...state, singleFlatViewsDate: newSingleFlatViewsDate
+                ...state, singleFlatViewsDate: [...state.singleFlatViewsDate, newSingleFlatViewsDate]
             };
 
         }
+
         default:
-            return state
+            return state;
+
     }
 }
+export default flatVewsReducer
