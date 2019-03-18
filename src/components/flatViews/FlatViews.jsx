@@ -3,7 +3,7 @@ import Plan from './Plan.jsx';
 import Buttons from './Buttons.jsx';
 import DateView from './DateView.jsx';
 import { switchView } from '../../actions/actions';
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import './FlatViews.scss';
 
 class FlatViews extends Component {
@@ -14,7 +14,7 @@ class FlatViews extends Component {
     }
     render() {
         const flatView =
-            this.props.flatViewsDate.map((item, index) => (
+            this.props.singleFlatViewsDate.map((item, index) => (
                 <div key={index} className='flatViews-container'>
                     <Plan image={item} />
                     <div className="flatViews__right">
@@ -24,8 +24,9 @@ class FlatViews extends Component {
                 </div>
             ))
 
+
         return (
-            <section className="flatViews">
+            <section className="flatViews" >
                 {flatView}
             </section>
         )
