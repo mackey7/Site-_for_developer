@@ -1,0 +1,153 @@
+.tableWrapper {
+    width: 80%;
+    margin: 0 auto;
+    .tableWrapper-brnContainer {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 20px;
+        select {
+       cursor: pointer;
+            background-color: #e5e5e5;
+            border: thin solid #e5e5e5;
+            display: inline-block;
+            font: inherit;
+            line-height: 1.5em;
+            padding: 0.5em 3.5em 0.5em 1em;
+            margin: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%), linear-gradient(to right, #00a671, #00a671);
+            background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+            background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+            background-repeat: no-repeat;
+        }
+        select:focus {
+            background-image: linear-gradient(45deg, white 50%, transparent 50%), linear-gradient(135deg, transparent 50%, white 50%), linear-gradient(to right, #00a671, #00a671);
+            background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+            background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+            background-repeat: no-repeat;
+            border: 0;
+            outline: 0;
+        }
+        input[type="button"] {
+            cursor: pointer;
+            padding: 10px 80px;
+            background-color: #54555a;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            color: #ffffff;
+            font-family: Lato;
+            border: 0;
+        }
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        thead {
+            tr {
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
+                padding: 20px 0px;
+                th {
+                    text-align: left;
+                }
+            }
+        }
+        tbody {
+            tr {
+                &:hover {
+                    background: #bbbbbb;
+                }
+                td {
+                    padding: 10px 10px 10px 0px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .tablePagination {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin: 20px;
+        .tablePagination__item {
+            cursor: pointer;
+            margin-right: 20px;
+            font-family: Lato;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 10px;
+            background-color: #e5e5e5;
+            color: #85878d;
+            &:active {
+                background-color: #00a671;
+                color: #fff;
+            }
+        }
+    }
+    @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        tr {
+            border: 1px solid #ccc;
+        }
+        td {
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+        td:before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+        td:nth-of-type(1):before {
+            content: "nr budynku mieszkania";
+        }
+        td:nth-of-type(2):before {
+            content: "Kondygnacja";
+        }
+        td:nth-of-type(3):before {
+            content: "Powierzchnia użytkowa";
+        }
+        td:nth-of-type(4):before {
+            content: "powierzchnia ogródka / strychu";
+        }
+        td:nth-of-type(5):before {
+            content: "cena brutto";
+        }
+        td:nth-of-type(6):before {
+            content: "plan";
+        }
+        td:nth-of-type(7):before {
+            content: "status";
+        }
+    }
+}
