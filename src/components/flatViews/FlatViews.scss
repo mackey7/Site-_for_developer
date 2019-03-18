@@ -1,0 +1,113 @@
+.flatViews {
+    background: url(../../images/apartment_projections_background.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    .flatViews-container {
+        padding: 50px 0;
+        width: 80%;
+        margin: 0 auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        .dataTable {
+            margin-top: 40px;
+            width: 100%; // max-width: 570px;
+            height: 100;
+            background-color: #60372f;
+            opacity: 0.8;
+            border: 1px solid rgb(38, 248, 125);
+            table {
+                width: 100%;
+                padding: 20px;
+                tbody {
+                    tr {
+                        td {
+                            color: #ffffff;
+                            font-family: Lato;
+                            font-size: 17px;
+                            font-weight: 700;
+                            line-height: 40px;
+                            &:nth-child(1) {
+                                background-color: #00a671;
+                                border-radius: 50%;
+                                text-align: center;
+                                padding: 5px;
+                            }
+                            &:nth-child(2) {
+                                padding-left: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .project-img {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+        }
+        .btn-changeProject {
+            cursor: pointer;
+            width: 250px;
+            height: 35px;
+            background-color: #54555a;
+            color: #ffffff;
+            font-family: Lato;
+            font-size: 17px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 0;
+            outline: 0;
+            margin: 10px;
+            &:hover {
+                background-color: #3a3a3f;
+            }
+        }
+        .buttons {
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+        .buttons-row {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .flat-project {
+            width: 100%;
+        }
+        .flatViews__left {
+            width: 500px;
+            margin-right: 4%;
+        }
+        .flatViews__right {
+            width: 500px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-line-pack: justify;
+            align-content: space-between;
+        }
+    }
+}
