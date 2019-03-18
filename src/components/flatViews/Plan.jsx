@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import project from '../../images/apartment_projections_img.png'
 
-const Plan = () => {
+
+const Plan = (image) => {
 
     return (
 
 
         <div className="flatViews__left">
-            <img className="project-img" src={project} alt="project" />
+            <img className="project-img" src={image.image} alt="project" />
         </div>
 
     )

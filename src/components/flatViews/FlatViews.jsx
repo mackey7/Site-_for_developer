@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './FlatViews.scss';
+import project from '../../images/apartment_projections_img.png'
 
 import Plan from './Plan.jsx';
 import Buttons from './Buttons.jsx';
@@ -11,7 +12,7 @@ class FlatViews extends Component {
         this.state = {
             flats: [
                 {
-                    imge: '../../images/apartment_projections_img.png',
+                    image: '../../images/apartment_projections_img.png',
                     room1: {
                         id: 1,
                         name: "salon z aneksem kuchannym",
@@ -49,7 +50,7 @@ class FlatViews extends Component {
                     },
                 },
                 {
-                    imge: '../../images/apartment_projections_img.png',
+                    image: '../../images/apartment_projections_img.png',
                     room1: {
                         id: 1,
                         name: "salon z aneksem kuchannym",
@@ -87,7 +88,7 @@ class FlatViews extends Component {
                     },
                 },
                 {
-                    imge: '../../images/apartment_projections_img.png',
+                    image: '../../images/apartment_projections_img.png',
                     room1: {
                         id: 1,
                         name: "salon z aneksem kuchannym",
@@ -125,7 +126,7 @@ class FlatViews extends Component {
                     },
                 },
                 {
-                    imge: '../../images/apartment_projections_img.png',
+                    image: '../../images/apartment_projections_img.png',
                     room1: {
                         id: 1,
                         name: "salon z aneksem kuchannym",
@@ -170,14 +171,20 @@ class FlatViews extends Component {
     render() {
         return (
             <section className="flatViews">
-                <div className='flatViews-container'>
-
-                    <Plan />
-                    <div className="flatViews__right">
-                        <Buttons />
-                        <DateView />
+                {this.state.flats.map((item, index) => (
+                    <div key={index} className='flatViews-container'>
+                        {/* <Plan image={item} /> */}
+                        <img src={project} alt="" />
+                        <div className="flatViews__right">
+                            <Buttons />
+                            <DateView date={item} />
+                        </div>
                     </div>
-                </div>
+
+
+
+                ))}
+
             </section>
         )
     }
