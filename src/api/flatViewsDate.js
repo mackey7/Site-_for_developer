@@ -1,5 +1,6 @@
 export const flatViewsDate = [
     {
+        id: "pal",
         image: 'https://i.ibb.co/VqSPh8n/apartment-projections-img.png',
         room1: {
             id: 1,
@@ -38,6 +39,7 @@ export const flatViewsDate = [
         },
     },
     {
+        id: "pap",
         image: 'https://i.ibb.co/VqSPh8n/apartment-projections-img.png',
         room1: {
             id: 1,
@@ -76,6 +78,7 @@ export const flatViewsDate = [
         },
     },
     {
+        id: "pil",
         image: 'https://i.ibb.co/VqSPh8n/apartment-projections-img.png',
         room1: {
             id: 1,
@@ -114,6 +117,7 @@ export const flatViewsDate = [
         },
     },
     {
+        id: "pip",
         image: 'https://i.ibb.co/VqSPh8n/apartment-projections-img.png',
         room1: {
             id: 1,
