@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sortColumn } from "../../actions/actions"
+import { sortColumn, changeFloor } from "../../actions/actions"
 import './table.scss';
 
 
@@ -9,29 +9,39 @@ class Table extends React.Component {
         console.log(key)
         this.props.sortColumn(key)
     }
-
+    handleChange = (e) => {
+        console.log(e.target.value);
+    }
+    changeFloor = e => {
+        console.log(e.target.value);
+        this.props.changeFloor(e.target.value)
+    }
     render() {
         return (
             <div className='tableWrapper'>
                 <div className="tableWrapper-brnContainer">
-                    <select name="" id="">
+
+                    <select onClick={(e) => this.changeFloor(e)} name="" id="kondygnacja">
                         <option value=""> kondygnacja</option>
-                        <option value=""> kondygnacja</option>
+                        <option value="parter"> parter</option>
+                        <option value="piętro"> piętro</option>
+
                     </select>
-                    <select name="" id="">
+                    <select onChange={(e) => this.handleChange(e)} name="" id="">
                         <option value=""> ogródek</option>
-                        <option value=""> strych</option>
+                        <option value="strych"> strych</option>
                     </select>
-                    <select name="status" id="">
+                    <select onChange={(e) => this.handleChange(e)} name="status" id="">
                         <option value=""> status</option>
-                        <option value=""> wolny</option>
-                        <option value=""> rezerwacja</option>
-                        <option value=""> sprzedany</option>
+                        <option value="wolny"> wolny</option>
+                        <option value="rezerwacja"> rezerwacja</option>
+                        <option value="sprzedany"> sprzedany</option>
                     </select>
-                    <select name="" id="">
+                    <select onChange={(e) => this.handleChange(e)} name="" id="">
+                        {/* <option value="cena"> cena</option> */}
                         <option value=""> cena</option>
-                        <option value=""> najmniejsza</option>
-                        <option value=""> największa</option>
+                        <option value="najmniejsza"> najmniejsza</option>
+                        <option value="największa"> największa</option>
                     </select>
                     <input type="button" value="FILTROWANIE" />
                 </div>
@@ -76,7 +86,9 @@ class Table extends React.Component {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        sortColumn: key => dispatch(sortColumn(key))
+        sortColumn: key => dispatch(sortColumn(key)),
+        changeFloor: e => dispatch(changeFloor(e))
+
     }
 }
 const mapStateToProps = state => {

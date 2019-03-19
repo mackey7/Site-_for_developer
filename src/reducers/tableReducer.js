@@ -1,4 +1,4 @@
-import { SORT_COLUMN } from '../actions/actions-type/actions-type';
+import { SORT_COLUMN, CHANGE_FLOOR } from '../actions/actions-type/actions-type';
 import { tableData } from '../api/tableData';
 
 const initialState = {
@@ -18,6 +18,13 @@ const tableReducer = (state = initialState, action) => {
             console.log(sortedColumn)
             return {
                 ...state, flatsData: [...sortedColumn]
+            }
+        }
+
+        case CHANGE_FLOOR: {
+            const selectedFloor = state.flatsData.filter(item => action.payload === item.floor)
+            return {
+                ...state, flatsData: selectedFloor
             }
         }
         default:
