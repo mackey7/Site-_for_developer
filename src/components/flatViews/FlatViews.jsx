@@ -13,21 +13,21 @@ class FlatViews extends Component {
         this.props.switchView(e.target.id)
     }
     render() {
-        const flatView =
-            this.props.singleFlatViewsDate.map((item, index) => (
-                <div key={index} className='flatViews-container'>
-                    <Plan image={item} />
-                    <div className="flatViews__right">
-                        <Buttons onClick={this.changeView} />
-                        <DateView date={item} />
-                    </div>
-                </div>
-            ))
+        // const flatView =
+        //     this.props.singleFlatViewsDate.map((item, index) => (
+        //         <div key={index} className='flatViews-container'>
+        //             <Plan image={item} />
+        //             <div className="flatViews__right">
+        //                 <Buttons onClick={this.changeView} />
+        //                 <DateView date={item} />
+        //             </div>
+        //         </div>
+        //     ))
 
 
         return (
             <section className="flatViews" >
-                {flatView}
+                {/* {flatView} */}
             </section>
         )
     }

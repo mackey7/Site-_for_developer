@@ -1,18 +1,9 @@
 import React from 'react';
-import { tableData } from '../../api/tableData'
+import { connect } from 'react-redux';
 import './table.scss';
 
 
 class Table extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            ofert: tableData
-        }
-
-    }
-
-
     render() {
         return (
             <div className='tableWrapper'>
@@ -52,7 +43,7 @@ class Table extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.ofert.map((item, index) => (
+                        {this.props.flatsData.map((item, index) => (
                             <tr key={index}>
                                 <td>{item.nr}</td>
                                 <td>{item.kondygnacja}</td>
@@ -66,6 +57,7 @@ class Table extends React.Component {
                         ))}
                     </tbody>
                 </table>
+
                 <div className="tablePagination">
                     <div className="tablePagination__item">1</div>
                     <div className="tablePagination__item">2</div>
@@ -76,4 +68,9 @@ class Table extends React.Component {
         )
     }
 }
-export default Table;
+const mapStateToProps = state => {
+    return {
+        flatsData: state.flatsData
+    }
+}
+export default connect(mapStateToProps)(Table);

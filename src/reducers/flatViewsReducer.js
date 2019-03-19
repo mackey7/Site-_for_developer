@@ -1,7 +1,7 @@
 import { SWITCH_VIEW } from '../actions/actions-type/actions-type';
 import { flatViewsDate } from '../api/flatViewsDate'
 
-export const initState = {
+const initState = {
     flatViewsDate: flatViewsDate,
     singleFlatViewsDate: [{
         id: "pal",
