@@ -9,9 +9,9 @@ class Table extends React.Component {
         console.log(key)
         this.props.sortColumn(key)
     }
-    handleChange = (e) => {
-        console.log(e.target.value);
-    }
+
+
+
     changeFloor = e => {
         console.log(e.target.value);
         this.props.changeFloor(e.target.value)
@@ -30,10 +30,11 @@ class Table extends React.Component {
         console.log(this.props.changePrice(e.target.value));
         this.props.changePrice(e.target.value)
     }
+
     render() {
         return (
             <div className='tableWrapper'>
-                <div className="tableWrapper-brnContainer">
+                <div className="tableWrapper-btnContainer">
 
                     <select onClick={(e) => this.changeFloor(e)} name="" id="kondygnacja">
                         <option value=""> kondygnacja</option>
@@ -56,7 +57,7 @@ class Table extends React.Component {
                         <option value="najmniejsza"> najmniejsza</option>
                         <option value="największa"> największa</option>
                     </select>
-                    <input type="button" value="FILTROWANIE" />
+                    <input onClick={this.handleFiltr} type="button" value="FILTROWANIE" />
                 </div>
                 <table>
                     <thead>

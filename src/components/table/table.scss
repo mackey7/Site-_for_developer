@@ -1,7 +1,7 @@
 .tableWrapper {
     width: 80%;
     margin: 0 auto;
-    .tableWrapper-brnContainer {
+    .tableWrapper-btnContainer {
         width: 100%;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -9,6 +9,8 @@
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
         padding: 20px;
         select {
             cursor: pointer;
@@ -33,7 +35,7 @@
             background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
             background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
             background-repeat: no-repeat;
-            border: 0;
+            border: 1px solid #54555a;
             outline: 0;
         }
         input[type="button"] {
@@ -97,14 +99,25 @@
             }
         }
     }
-    @media only screen and (max-width: 760px),
-    (min-device-width: 768px) and (max-device-width: 1024px) {
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    .tableWrapper {
+        margin: 0 auto;
+        .tableWrapper-btnContainer {
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
         table,
         thead,
         tbody,
         th,
         td,
         tr {
+            width: 100%;
             display: block;
         }
         thead tr {
@@ -120,6 +133,7 @@
             border-bottom: 1px solid #eee;
             position: relative;
             padding-left: 50%;
+            border: 1px solid #ccc;
         }
         td:before {
             position: absolute;
@@ -149,6 +163,28 @@
         }
         td:nth-of-type(7):before {
             content: "status";
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .tableWrapper {
+        padding: 0;
+        margin: 0 auto;
+        .tableWrapper-btnContainer {
+            margin: 0;
+            padding: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            select {
+                border: 1px solid #54555a;
+            }
         }
     }
 }
