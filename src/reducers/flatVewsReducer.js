@@ -50,7 +50,7 @@ const flatVewsReducer = (state = initState, action) => {
         case SWITCH_VIEW: {
             const newSingleFlatViewsDate = state.flatViewsDate.find(item => action.payload === item.id);
             return {
-                ...state, singleFlatViewsDate: [...state.singleFlatViewsDate, newSingleFlatViewsDate]
+                ...state, singleFlatViewsDate: [newSingleFlatViewsDate]
             };
 
         }

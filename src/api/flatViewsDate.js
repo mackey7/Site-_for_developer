@@ -152,7 +152,7 @@ export const flatViewsDate = [
         room7: {
             id: 7,
             name: "przedpokój",
-            powierzchnia: 3.79
+            powierzchnia: 300.79
         },
     }
 ]
