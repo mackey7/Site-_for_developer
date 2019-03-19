@@ -1,9 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { sortColumn } from "../../actions/actions"
 import './table.scss';
 
 
 class Table extends React.Component {
+    sortColumn = (key) => {
+        console.log(key)
+        this.props.sortColumn(key)
+    }
+
     render() {
         return (
             <div className='tableWrapper'>
@@ -32,13 +38,13 @@ class Table extends React.Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>nr budynku mieszkania</th>
-                            <th>Kondygnacja</th>
-                            <th>powierzchnia użytkowa</th>
-                            <th>powierzchnia ogródka  strychu</th>
-                            <th>cenna brutto</th>
-                            <th>plan</th>
-                            <th>status</th>
+                            <th onClick={() => this.sortColumn('nr')}>nr budynku mieszkania</th>
+                            <th onClick={() => this.sortColumn('floor')}>Kondygnacja</th>
+                            <th onClick={() => this.sortColumn('area')}>powierzchnia użytkowa</th>
+                            <th onClick={() => this.sortColumn('garden')}>powierzchnia ogródka / strychu</th>
+                            <th onClick={() => this.sortColumn('price')}>cenna brutto</th>
+                            <th >plan</th>
+                            <th onClick={() => this.sortColumn('status')}>status</th>
 
                         </tr>
                     </thead>
@@ -46,10 +52,10 @@ class Table extends React.Component {
                         {this.props.flatsData.map((item, index) => (
                             <tr key={index}>
                                 <td>{item.nr}</td>
-                                <td>{item.kondygnacja}</td>
-                                <td>{item.powierzchnia}m2</td>
-                                <td>{item.dodatek}m2</td>
-                                <td>{item.cena} zł</td>
+                                <td>{item.floor}</td>
+                                <td>{item.area}m2</td>
+                                <td>{item.garden}m2</td>
+                                <td>{item.price} zł</td>
                                 <td>pobierz</td>
                                 <td>{item.status}</td>
                             </tr>
@@ -68,9 +74,14 @@ class Table extends React.Component {
         )
     }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        sortColumn: key => dispatch(sortColumn(key))
+    }
+}
 const mapStateToProps = state => {
     return {
         flatsData: state.flatsData
     }
 }
-export default connect(mapStateToProps)(Table);
+export default connect(mapStateToProps, mapDispatchToProps)(Table);

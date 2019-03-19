@@ -9,8 +9,15 @@ const initialState = {
 const tableReducer = (state = initialState, action) => {
     switch (action.type) {
         case SORT_COLUMN: {
+            let sortFn = (a, b) => {
+                if (a[action.payload] < b[action.payload]) return -1;
+                if (a[action.payload] > b[action.payload]) return 1;
+                return 0;
+            }
+            let sortedColumn = state.flatsData.sort(sortFn)
+            console.log(sortedColumn)
             return {
-                ...state
+                ...state, flatsData: [...sortedColumn]
             }
         }
         default:
