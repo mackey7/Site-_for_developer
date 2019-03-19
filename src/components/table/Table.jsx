@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sortColumn, changeFloor, changeGarden } from "../../actions/actions"
+import { sortColumn, changeFloor, changeGarden, changeStatus } from "../../actions/actions"
 import './table.scss';
 
 
@@ -20,6 +20,11 @@ class Table extends React.Component {
         console.log(e.target.value);
         this.props.changeGarden(e.target.value)
     }
+    changeStatus = e => {
+        console.log(e.target.value);
+        console.log(this.props.changeStatus(e.target.value));
+        this.props.changeStatus(e.target.value);
+    }
     render() {
         return (
             <div className='tableWrapper'>
@@ -35,7 +40,7 @@ class Table extends React.Component {
                         <option value="ogródek"> ogródek</option>
                         <option value="strych"> strych</option>
                     </select>
-                    <select onChange={(e) => this.handleChange(e)} name="status" id="">
+                    <select onClick={(e) => this.changeStatus(e)} name="status" id="">
                         <option value=""> status</option>
                         <option value="wolny"> wolny</option>
                         <option value="rezerwacja"> rezerwacja</option>
@@ -92,7 +97,8 @@ const mapDispatchToProps = dispatch => {
     return {
         sortColumn: key => dispatch(sortColumn(key)),
         changeFloor: e => dispatch(changeFloor(e)),
-        changeGarden: e => dispatch(changeGarden(e))
+        changeGarden: e => dispatch(changeGarden(e)),
+        changeStatus: e => dispatch(changeStatus(e))
 
     }
 }

@@ -1,4 +1,4 @@
-import { SORT_COLUMN, CHANGE_FLOOR, CHANGE_GARDEN } from '../actions/actions-type/actions-type';
+import { SORT_COLUMN, CHANGE_FLOOR, CHANGE_GARDEN, CHANGE_STATUS } from '../actions/actions-type/actions-type';
 import { tableData } from '../api/tableData';
 
 const initialState = {
@@ -31,6 +31,12 @@ const tableReducer = (state = initialState, action) => {
             const selectedGarden = state.flatsData.filter(item => item.garden !== action.payload)
             return {
                 ...state, flatsData: selectedGarden
+            }
+        }
+        case CHANGE_STATUS: {
+            const selectedStatus = state.flatsData.filter(item => item.status !== action.payload)
+            return {
+                ...state, flatsData: selectedStatus
             }
         }
         default:

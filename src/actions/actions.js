@@ -1,4 +1,4 @@
-import { SWITCH_VIEW, SORT_COLUMN, CHANGE_FLOOR, CHANGE_GARDEN } from './actions-type/actions-type'
+import { SWITCH_VIEW, SORT_COLUMN, CHANGE_FLOOR, CHANGE_GARDEN, CHANGE_STATUS } from './actions-type/actions-type'
 
 export const switchView = payload => {
     return {
@@ -22,6 +22,12 @@ export const changeFloor = payload => {
 export const changeGarden = payload => {
     return {
         type: CHANGE_GARDEN,
+        payload
+    }
+}
+export const changeStatus = payload => {
+    return {
+        type: CHANGE_STATUS,
         payload
     }
 }
