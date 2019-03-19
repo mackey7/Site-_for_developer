@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sortColumn, changeFloor } from "../../actions/actions"
+import { sortColumn, changeFloor, changeGarden } from "../../actions/actions"
 import './table.scss';
 
 
@@ -16,6 +16,10 @@ class Table extends React.Component {
         console.log(e.target.value);
         this.props.changeFloor(e.target.value)
     }
+    changeGarden = e => {
+        console.log(e.target.value);
+        this.props.changeGarden(e.target.value)
+    }
     render() {
         return (
             <div className='tableWrapper'>
@@ -27,8 +31,8 @@ class Table extends React.Component {
                         <option value="piętro"> piętro</option>
 
                     </select>
-                    <select onChange={(e) => this.handleChange(e)} name="" id="">
-                        <option value=""> ogródek</option>
+                    <select onClick={(e) => this.changeGarden(e)} name="" id="">
+                        <option value="ogródek"> ogródek</option>
                         <option value="strych"> strych</option>
                     </select>
                     <select onChange={(e) => this.handleChange(e)} name="status" id="">
@@ -64,7 +68,7 @@ class Table extends React.Component {
                                 <td>{item.nr}</td>
                                 <td>{item.floor}</td>
                                 <td>{item.area}m2</td>
-                                <td>{item.garden}m2</td>
+                                <td>{item.garden}{" "}{item.gardenArea}m2</td>
                                 <td>{item.price} zł</td>
                                 <td>pobierz</td>
                                 <td>{item.status}</td>
@@ -87,7 +91,8 @@ class Table extends React.Component {
 const mapDispatchToProps = dispatch => {
     return {
         sortColumn: key => dispatch(sortColumn(key)),
-        changeFloor: e => dispatch(changeFloor(e))
+        changeFloor: e => dispatch(changeFloor(e)),
+        changeGarden: e => dispatch(changeGarden(e))
 
     }
 }
