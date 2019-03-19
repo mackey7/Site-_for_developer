@@ -45,7 +45,7 @@ export const initState = {
 
 }
 
-const flatVewsReducer = (state = initState, action) => {
+const flatViewsReducer = (state = initState, action) => {
     switch (action.type) {
         case SWITCH_VIEW: {
             const newSingleFlatViewsDate = state.flatViewsDate.find(item => action.payload === item.id);
@@ -60,4 +60,4 @@ const flatVewsReducer = (state = initState, action) => {
 
     }
 }
-export default flatVewsReducer
+export default flatViewsReducer
