@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sortColumn, changeFloor, changeGarden, changeStatus } from "../../actions/actions"
+import { sortColumn, changeFloor, changeGarden, changeStatus, changePrice } from "../../actions/actions"
 import './table.scss';
 
 
@@ -25,6 +25,11 @@ class Table extends React.Component {
         console.log(this.props.changeStatus(e.target.value));
         this.props.changeStatus(e.target.value);
     }
+    changePrice = e => {
+        console.log(e.target.value);
+        console.log(this.props.changePrice(e.target.value));
+        this.props.changePrice(e.target.value)
+    }
     render() {
         return (
             <div className='tableWrapper'>
@@ -46,8 +51,7 @@ class Table extends React.Component {
                         <option value="rezerwacja"> rezerwacja</option>
                         <option value="sprzedany"> sprzedany</option>
                     </select>
-                    <select onChange={(e) => this.handleChange(e)} name="" id="">
-                        {/* <option value="cena"> cena</option> */}
+                    <select onClick={(e) => this.changePrice(e)} name="" id="">
                         <option value=""> cena</option>
                         <option value="najmniejsza"> najmniejsza</option>
                         <option value="największa"> największa</option>
@@ -57,13 +61,13 @@ class Table extends React.Component {
                 <table>
                     <thead>
                         <tr>
-                            <th onClick={() => this.sortColumn('nr')}>nr budynku mieszkania</th>
-                            <th onClick={() => this.sortColumn('floor')}>Kondygnacja</th>
-                            <th onClick={() => this.sortColumn('area')}>powierzchnia użytkowa</th>
-                            <th onClick={() => this.sortColumn('garden')}>powierzchnia ogródka / strychu</th>
-                            <th onClick={() => this.sortColumn('price')}>cenna brutto</th>
+                            <th onSelect={() => this.sortColumn('nr')}>nr budynku mieszkania</th>
+                            <th onSelect={() => this.sortColumn('floor')}>Kondygnacja</th>
+                            <th onSelect={() => this.sortColumn('area')}>powierzchnia użytkowa</th>
+                            <th onSelect={() => this.sortColumn('garden')}>powierzchnia ogródka / strychu</th>
+                            <th onSelect={() => this.sortColumn('price')}>cenna brutto</th>
                             <th >plan</th>
-                            <th onClick={() => this.sortColumn('status')}>status</th>
+                            <th onSelect={() => this.sortColumn('status')}>status</th>
 
                         </tr>
                     </thead>
@@ -98,7 +102,8 @@ const mapDispatchToProps = dispatch => {
         sortColumn: key => dispatch(sortColumn(key)),
         changeFloor: e => dispatch(changeFloor(e)),
         changeGarden: e => dispatch(changeGarden(e)),
-        changeStatus: e => dispatch(changeStatus(e))
+        changeStatus: e => dispatch(changeStatus(e)),
+        changePrice: e => dispatch(changePrice(e))
 
     }
 }

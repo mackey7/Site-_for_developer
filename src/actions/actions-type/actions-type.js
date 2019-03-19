@@ -3,3 +3,4 @@ export const SORT_COLUMN = "SORT_COLUMN";
 export const CHANGE_FLOOR = 'CHANGE_FLOOR';
 export const CHANGE_GARDEN = 'CHANGE_GARDEN';
 export const CHANGE_STATUS = 'CHANGE_STATUS';
+export const CHANGE_PRICE = 'CHANGE_PRICE';
