@@ -5,9 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import flatVewsReducer from "./reducers/flatVewsReducer";
+import flatViewsReducer from "./reducers/flatViewsReducer";
 
-const store = createStore(flatVewsReducer)
+const store = createStore(flatViewsReducer)
 ReactDOM.render(
     <Provider store={store} >
         <App />
