@@ -73,7 +73,7 @@ class Table extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.flatsData.map((item, index) => (
+                        {this.props.flatsData.flatsData.map((item, index) => (
                             <tr key={index}>
                                 <td>{item.nr}</td>
                                 <td>{item.floor}</td>
@@ -110,7 +110,7 @@ const mapDispatchToProps = dispatch => {
 }
 const mapStateToProps = state => {
     return {
-        flatsData: state.flatsData
+        flatsData: state.tableReducer
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
