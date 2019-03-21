@@ -57,7 +57,7 @@ class Table extends React.Component {
                         <option value="najmniejsza"> najmniejsza</option>
                         <option value="największa"> największa</option>
                     </select>
-                    <input onClick={this.handleFiltr} type="button" value="FILTROWANIE" />
+
                 </div>
                 <table>
                     <thead>
