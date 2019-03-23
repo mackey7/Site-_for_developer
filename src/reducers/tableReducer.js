@@ -22,7 +22,7 @@ const tableReducer = (state = initialState, action) => {
         }
 
         case CHANGE_FLOOR: {
-            if (state.flatsData.length === 10) {
+            if (state.flatsData.length > 10) {
                 const selectedFloor = state.flatsData.filter(item => action.payload === item.floor)
                 return {
                     ...state, flatsData: selectedFloor
@@ -41,9 +41,19 @@ const tableReducer = (state = initialState, action) => {
 
         }
         case CHANGE_GARDEN: {
-            const selectedGarden = state.flatsData.filter(item => item.garden !== action.payload)
-            return {
-                ...state, flatsData: selectedGarden
+            if (state.flatsData.length > 10) {
+                const selectedGarden = state.flatsData.filter(item => item.garden !== action.payload)
+                return {
+                    ...state, flatsData: selectedGarden
+                }
+            } else {
+                const initState = initialState
+                const selectedGarden = initState.flatsData.filter(
+                    item => item.garden !== action.payload
+                );
+                return {
+                    ...state, flatsData: selectedGarden
+                }
             }
         }
         case CHANGE_STATUS: {
