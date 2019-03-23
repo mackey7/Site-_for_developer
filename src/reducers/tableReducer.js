@@ -42,14 +42,14 @@ const tableReducer = (state = initialState, action) => {
         }
         case CHANGE_GARDEN: {
             if (state.flatsData.length > 10) {
-                const selectedGarden = state.flatsData.filter(item => item.garden !== action.payload)
+                const selectedGarden = state.flatsData.filter(item => item.garden === action.payload)
                 return {
                     ...state, flatsData: selectedGarden
                 }
             } else {
                 const initState = initialState
                 const selectedGarden = initState.flatsData.filter(
-                    item => item.garden !== action.payload
+                    item => item.garden === action.payload
                 );
                 return {
                     ...state, flatsData: selectedGarden
