@@ -7,6 +7,7 @@ import './table.scss';
 class Table extends React.Component {
     sortColumn = (key) => {
         console.log(key)
+        console.log(this.props.sortColumn(key))
         this.props.sortColumn(key)
     }
 
@@ -14,6 +15,7 @@ class Table extends React.Component {
 
     changeFloor = e => {
         console.log(e.target.value);
+        console.log(this.props.changeFloor(e.target.value));
         this.props.changeFloor(e.target.value)
     }
     changeGarden = e => {

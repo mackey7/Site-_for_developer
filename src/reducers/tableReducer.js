@@ -57,11 +57,22 @@ const tableReducer = (state = initialState, action) => {
             }
         }
         case CHANGE_STATUS: {
-            const selectedStatus = state.flatsData.filter(item => item.status !== action.payload)
-            return {
-                ...state, flatsData: selectedStatus
+            if (state.flatsData.length > 10) {
+                const selectedStatus = state.flatsData.filter(item => item.status === action.payload)
+                console.log(...selectedStatus)
+                return {
+                    ...state, flatsData: selectedStatus
+                }
+            }
+            else {
+                const initState = initialState
+                const selectedStatus = initState.flatsData.filter(item => item.status === action.payload)
+                return {
+                    ...state, flatsData: selectedStatus
+                }
             }
         }
+
         case CHANGE_PRICE: {
             if (action.payload === "największa") {
                 console.log('najw')
