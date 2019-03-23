@@ -5,7 +5,10 @@ import './table.scss';
 
 
 class Table extends React.Component {
-    sortColumn = (key) => {
+    sortColumnMinMax = (key) => {
+        this.props.sortColumn(key)
+    }
+    sortColumnMaxMin = (key) => {
         this.props.sortColumn(key)
     }
     changeFloor = e => {
@@ -49,27 +52,48 @@ class Table extends React.Component {
                 <table>
                     <thead>
                         <tr>
-                            <th onClick={() => this.sortColumn('nr')}>
+                            <th>
                                 nr budynku mieszkania
-                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            <div className="arrow-container">
+                                    <i onClick={() => this.sortColumnMinMax('nr')} class="fas fa-long-arrow-alt-up"></i>
+                                    <i onClick={() => this.sortColumnMaxMin('nr')} class="fas fa-long-arrow-alt-down"></i>
+                                </div>
                             </th>
-                            <th onClick={() => this.sortColumn('floor')}>
-
+                            <th >
                                 Kondygnacja
-                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            <div className="arrow-container">
+                                    <i onClick={() => this.sortColumnMinMax('floor')} class="fas fa-long-arrow-alt-up"></i>
+                                    <i onClick={() => this.sortColumnMaxMin('floor')} class="fas fa-long-arrow-alt-down"></i>
+                                </div>
                             </th>
-                            <th onClick={() => this.sortColumn('area')}>powierzchnia użytkowa
-                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            <th >
+                                powierzchnia użytkowa
+                            <div className="arrow-container">
+                                    <i onClick={() => this.sortColumnMinMax('area')} class="fas fa-long-arrow-alt-up"></i>
+                                    <i onClick={() => this.sortColumnMaxMin('area')} class="fas fa-long-arrow-alt-down"></i>
+                                </div>
                             </th>
-                            <th onClick={() => this.sortColumn('garden')}>powierzchnia ogródka / strychu
-                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            <th >
+                                powierzchnia ogródka / strychu
+                            <div className="arrow-container">
+                                    <i onClick={() => this.sortColumnMinMax('garden')} class="fas fa-long-arrow-alt-up"></i>
+                                    <i onClick={() => this.sortColumnMaxMin('garden')} class="fas fa-long-arrow-alt-down"></i>
+                                </div>
                             </th>
-                            <th onClick={() => this.sortColumn('price')}>cenna brutto
-                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            <th >
+                                cenna brutto
+                            <div className="arrow-container">
+                                    <i onClick={() => this.sortColumnMinMax('price')} class="fas fa-long-arrow-alt-up"></i>
+                                    <i onClick={() => this.sortColumnMaxMin('price')} class="fas fa-long-arrow-alt-down"></i>
+                                </div>
                             </th>
                             <th>plan</th>
-                            <th onClick={() => this.sortColumn('status')}>status
-                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            <th >
+                                status
+                            <div className="arrow-container">
+                                    <i onClick={() => this.sortColumnMinMax('status')} class="fas fa-long-arrow-alt-up"></i>
+                                    <i onClick={() => this.sortColumnMaxMin('status')} class="fas fa-long-arrow-alt-down"></i>
+                                </div>
                             </th>
 
                         </tr>
