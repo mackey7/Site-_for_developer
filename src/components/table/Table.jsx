@@ -6,30 +6,18 @@ import './table.scss';
 
 class Table extends React.Component {
     sortColumn = (key) => {
-        console.log(key)
-        console.log(this.props.sortColumn(key))
         this.props.sortColumn(key)
     }
-
-
-
     changeFloor = e => {
-        console.log(e.target.value);
-        console.log(this.props.changeFloor(e.target.value));
         this.props.changeFloor(e.target.value)
     }
     changeGarden = e => {
-        console.log(e.target.value);
         this.props.changeGarden(e.target.value)
     }
     changeStatus = e => {
-        console.log(e.target.value);
-        console.log(this.props.changeStatus(e.target.value));
         this.props.changeStatus(e.target.value);
     }
     changePrice = e => {
-        console.log(e.target.value);
-        console.log(this.props.changePrice(e.target.value));
         this.props.changePrice(e.target.value)
     }
 
@@ -39,7 +27,7 @@ class Table extends React.Component {
                 <div className="tableWrapper-btnContainer">
 
                     <select onClick={(e) => this.changeFloor(e)} name="" id="kondygnacja">
-                        <option value=""> kondygnacja</option>
+
                         <option value="parter"> parter</option>
                         <option value="piętro"> piętro</option>
 
@@ -49,13 +37,13 @@ class Table extends React.Component {
                         <option value="strych"> strych</option>
                     </select>
                     <select onClick={(e) => this.changeStatus(e)} name="status" id="">
-                        <option value=""> status</option>
+
                         <option value="wolny"> wolny</option>
                         <option value="rezerwacja"> rezerwacja</option>
                         <option value="sprzedany"> sprzedany</option>
                     </select>
                     <select onClick={(e) => this.changePrice(e)} name="" id="">
-                        <option value=""> cena</option>
+
                         <option value="najmniejsza"> najmniejsza</option>
                         <option value="największa"> największa</option>
                     </select>
