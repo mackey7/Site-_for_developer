@@ -27,23 +27,19 @@ class Table extends React.Component {
                 <div className="tableWrapper-btnContainer">
 
                     <select onClick={(e) => this.changeFloor(e)} name="" id="kondygnacja">
-
                         <option value="parter"> parter</option>
                         <option value="piętro"> piętro</option>
-
                     </select>
                     <select onClick={(e) => this.changeGarden(e)} name="" id="">
                         <option value="ogródek"> ogródek</option>
                         <option value="strych"> strych</option>
                     </select>
                     <select onClick={(e) => this.changeStatus(e)} name="status" id="">
-
                         <option value="wolny"> wolny</option>
                         <option value="rezerwacja"> rezerwacja</option>
                         <option value="sprzedany"> sprzedany</option>
                     </select>
                     <select onClick={(e) => this.changePrice(e)} name="" id="">
-
                         <option value="najmniejsza"> najmniejsza</option>
                         <option value="największa"> największa</option>
                     </select>
@@ -52,13 +48,13 @@ class Table extends React.Component {
                 <table>
                     <thead>
                         <tr>
-                            <th onSelect={() => this.sortColumn('nr')}>nr budynku mieszkania</th>
-                            <th onSelect={() => this.sortColumn('floor')}>Kondygnacja</th>
-                            <th onSelect={() => this.sortColumn('area')}>powierzchnia użytkowa</th>
-                            <th onSelect={() => this.sortColumn('garden')}>powierzchnia ogródka / strychu</th>
-                            <th onSelect={() => this.sortColumn('price')}>cenna brutto</th>
-                            <th >plan</th>
-                            <th onSelect={() => this.sortColumn('status')}>status</th>
+                            <th onClick={() => this.sortColumn('nr')}>nr budynku mieszkania</th>
+                            <th onClick={() => this.sortColumn('floor')}>Kondygnacja</th>
+                            <th onClick={() => this.sortColumn('area')}>powierzchnia użytkowa</th>
+                            <th onClick={() => this.sortColumn('garden')}>powierzchnia ogródka / strychu</th>
+                            <th onClick={() => this.sortColumn('price')}>cenna brutto</th>
+                            <th>plan</th>
+                            <th onClick={() => this.sortColumn('status')}>status</th>
 
                         </tr>
                     </thead>

@@ -9,6 +9,7 @@ const initialState = {
 const tableReducer = (state = initialState, action) => {
     switch (action.type) {
         case SORT_COLUMN: {
+            console.log(action.payload)
             let sortFn = (a, b) => {
                 if (a[action.payload] < b[action.payload]) return -1;
                 if (a[action.payload] > b[action.payload]) return 1;
