@@ -17,8 +17,9 @@ class Table extends React.Component {
     changeStatus = e => {
         this.props.changeStatus(e.target.value);
     }
-    changePrice = e => {
-        this.props.changePrice(e.target.value)
+    changePrice = (e, key) => {
+        console.log(e.target.value, key)
+        this.props.changePrice(e.target.value, key)
     }
 
     render() {
@@ -39,7 +40,7 @@ class Table extends React.Component {
                         <option value="rezerwacja"> rezerwacja</option>
                         <option value="sprzedany"> sprzedany</option>
                     </select>
-                    <select onClick={(e) => this.changePrice(e)} name="" id="">
+                    <select onClick={(e) => this.changePrice(e, 'price')} name="" id="">
                         <option value="najmniejsza"> najmniejsza</option>
                         <option value="największa"> największa</option>
                     </select>
@@ -90,7 +91,7 @@ const mapDispatchToProps = dispatch => {
         changeFloor: e => dispatch(changeFloor(e)),
         changeGarden: e => dispatch(changeGarden(e)),
         changeStatus: e => dispatch(changeStatus(e)),
-        changePrice: e => dispatch(changePrice(e))
+        changePrice: (e, key) => dispatch(changePrice(e, key))
 
     }
 }

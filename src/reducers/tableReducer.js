@@ -75,28 +75,29 @@ const tableReducer = (state = initialState, action) => {
         }
 
         case CHANGE_PRICE: {
-            if (action.payload === "największa") {
+            if (action.e === "największa") {
+                console.log(action.e)
                 console.log('najw')
                 let sortFn = (a, b) => {
-                    if (a[action.price] < b[action.price]) return -1;
-                    if (a[action.price] > b[action.price]) return 1;
+                    if (a[action.key] > b[action.key]) return -1;
+                    if (a[action.key] < b[action.key]) return 1;
                     return 0;
                 }
-
-                let sortedColumn = state.flatsData.sort(sortFn)
+                let priceColumn = state.flatsData
+                let sortedColumn = priceColumn.sort(sortFn);
                 console.log(...sortedColumn)
                 return {
                     ...state, flatsData: [...sortedColumn]
                 }
-            } else if (action.payload === "najmniejsza") {
+            } else if (action.e === "najmniejsza") {
                 console.log('najmn')
                 let sortFn = (a, b) => {
-                    if (a[action.price] > b[action.price]) return -1;
-                    if (a[action.price] < b[action.price]) return 1;
+                    if (a[action.key] < b[action.key]) return -1;
+                    if (a[action.key] > b[action.key]) return 1;
                     return 0;
                 }
-
-                let sortedColumn = state.flatsData.sort(sortFn)
+                let priceColumn = state.flatsData
+                let sortedColumn = priceColumn.sort(sortFn)
                 console.log(...sortedColumn)
                 return {
                     ...state, flatsData: [...sortedColumn]

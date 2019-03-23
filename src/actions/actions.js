@@ -31,9 +31,10 @@ export const changeStatus = payload => {
         payload
     }
 }
-export const changePrice = payload => {
+export const changePrice = (e, key) => {
     return {
         type: CHANGE_PRICE,
-        payload
+        e,
+        key
     }
 }
