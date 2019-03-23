@@ -49,13 +49,28 @@ class Table extends React.Component {
                 <table>
                     <thead>
                         <tr>
-                            <th onClick={() => this.sortColumn('nr')}>nr budynku mieszkania</th>
-                            <th onClick={() => this.sortColumn('floor')}>Kondygnacja</th>
-                            <th onClick={() => this.sortColumn('area')}>powierzchnia użytkowa</th>
-                            <th onClick={() => this.sortColumn('garden')}>powierzchnia ogródka / strychu</th>
-                            <th onClick={() => this.sortColumn('price')}>cenna brutto</th>
+                            <th onClick={() => this.sortColumn('nr')}>
+                                nr budynku mieszkania
+                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            </th>
+                            <th onClick={() => this.sortColumn('floor')}>
+
+                                Kondygnacja
+                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            </th>
+                            <th onClick={() => this.sortColumn('area')}>powierzchnia użytkowa
+                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            </th>
+                            <th onClick={() => this.sortColumn('garden')}>powierzchnia ogródka / strychu
+                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            </th>
+                            <th onClick={() => this.sortColumn('price')}>cenna brutto
+                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            </th>
                             <th>plan</th>
-                            <th onClick={() => this.sortColumn('status')}>status</th>
+                            <th onClick={() => this.sortColumn('status')}>status
+                            <div className="arrow-container"><i class="fas fa-long-arrow-alt-up"></i>  <i class="fas fa-long-arrow-alt-down"></i>  </div>
+                            </th>
 
                         </tr>
                     </thead>
@@ -81,7 +96,7 @@ class Table extends React.Component {
                     <div className="tablePagination__item">3</div>
                     <div className="tablePagination__item">4</div>
                 </div>
-            </div>
+            </div >
         )
     }
 }
