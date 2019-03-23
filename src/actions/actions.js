@@ -1,4 +1,4 @@
-import { SWITCH_VIEW, SORT_COLUMN, CHANGE_FLOOR, CHANGE_GARDEN, CHANGE_STATUS, CHANGE_PRICE } from './actions-type/actions-type'
+import { SWITCH_VIEW, SORT_COLUMN_MAX_MIN, SORT_COLUMN_MIN_MAX, CHANGE_FLOOR, CHANGE_GARDEN, CHANGE_STATUS, CHANGE_PRICE } from './actions-type/actions-type'
 
 export const switchView = payload => {
     return {
@@ -6,9 +6,15 @@ export const switchView = payload => {
         payload
     }
 }
-export const sortColumn = payload => {
+export const sortColumnMaxMin = payload => {
     return {
-        type: SORT_COLUMN,
+        type: SORT_COLUMN_MAX_MIN,
+        payload
+    }
+}
+export const sortColumnMinMax = payload => {
+    return {
+        type: SORT_COLUMN_MIN_MAX,
         payload
     }
 }

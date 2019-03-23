@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sortColumn, changeFloor, changeGarden, changeStatus, changePrice } from "../../actions/actions"
+import { sortColumnMaxMin, sortColumnMinMax, changeFloor, changeGarden, changeStatus, changePrice } from "../../actions/actions"
 import './table.scss';
 
 
 class Table extends React.Component {
     sortColumnMinMax = (key) => {
-        this.props.sortColumn(key)
+        this.props.sortColumnMinMax(key)
     }
     sortColumnMaxMin = (key) => {
-        this.props.sortColumn(key)
+        this.props.sortColumnMaxMin(key)
     }
     changeFloor = e => {
         this.props.changeFloor(e.target.value)
@@ -126,7 +126,8 @@ class Table extends React.Component {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        sortColumn: key => dispatch(sortColumn(key)),
+        sortColumnMinMax: key => dispatch(sortColumnMinMax(key)),
+        sortColumnMaxMin: key => dispatch(sortColumnMaxMin(key)),
         changeFloor: e => dispatch(changeFloor(e)),
         changeGarden: e => dispatch(changeGarden(e)),
         changeStatus: e => dispatch(changeStatus(e)),

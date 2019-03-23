@@ -1,4 +1,4 @@
-import { SORT_COLUMN, CHANGE_FLOOR, CHANGE_GARDEN, CHANGE_STATUS, CHANGE_PRICE } from '../actions/actions-type/actions-type';
+import { SORT_COLUMN_MIN_MAX, SORT_COLUMN_MAX_MIN, CHANGE_FLOOR, CHANGE_GARDEN, CHANGE_STATUS, CHANGE_PRICE } from '../actions/actions-type/actions-type';
 import { tableData } from '../api/tableData';
 
 const initialState = {
@@ -8,11 +8,24 @@ const initialState = {
 
 const tableReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SORT_COLUMN: {
+        case SORT_COLUMN_MAX_MIN: {
             console.log(action.payload)
             let sortFn = (a, b) => {
                 if (a[action.payload] < b[action.payload]) return -1;
                 if (a[action.payload] > b[action.payload]) return 1;
+                return 0;
+            }
+            let sortedColumn = state.flatsData.sort(sortFn)
+            console.log(sortedColumn)
+            return {
+                ...state, flatsData: [...sortedColumn]
+            }
+        }
+        case SORT_COLUMN_MIN_MAX: {
+            console.log(action.payload)
+            let sortFn = (a, b) => {
+                if (a[action.payload] > b[action.payload]) return -1;
+                if (a[action.payload] < b[action.payload]) return 1;
                 return 0;
             }
             let sortedColumn = state.flatsData.sort(sortFn)
