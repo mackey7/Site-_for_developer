@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { sortColumnMaxMin, sortColumnMinMax, changeFloor, changeGarden, changeStatus, changePrice } from "../../actions/actions"
+import Pagination from './Pagination.jsx';
 import './table.scss';
 
 
 class Table extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            pageOfItems: []
+        };
+    }
+    onChangePage = (pageOfItems) => {
+        this.setState({ pageOfItems: pageOfItems });
+    }
     sortColumnMinMax = (key) => {
         this.props.sortColumnMinMax(key)
     }
@@ -112,14 +122,12 @@ class Table extends React.Component {
 
                         ))}
                     </tbody>
+                    <Pagination items={this.props.flatsData.flatsData} onChangePage={this.onChangePage} />
                 </table>
 
-                <div className="tablePagination">
-                    <div className="tablePagination__item">1</div>
-                    <div className="tablePagination__item">2</div>
-                    <div className="tablePagination__item">3</div>
-                    <div className="tablePagination__item">4</div>
-                </div>
+
+
+
             </div >
         )
     }
