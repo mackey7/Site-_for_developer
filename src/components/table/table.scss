@@ -101,15 +101,20 @@
         margin-right: 20px;
         font-family: Lato;
         font-size: 16px;
-        font-weight: 400;
+        font-weight: 700;
         padding: 10px;
         background-color: #e5e5e5;
-        color: #85878d;
+        color: #00a671;
         border: 0;
 
         &:active {
             background-color: #00a671;
             color: #fff;
+        }
+
+        &:disabled {
+            color: #85878d;
+            font-weight: 400;
         }
     }
 }

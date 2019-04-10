@@ -34,10 +34,18 @@ class TableContainer extends Component {
         console.log(e.target.value, key)
         this.props.changePrice(e.target.value, key)
     }
+
+    getNumberOfPages = () => {
+        return Math.ceil(this.props.flatsData.flatsData.length / this.state.numberPerPage);
+    };
+
+
+
     nextPage = () => {
         this.setState((state) => {
             return { currentPage: state.currentPage += 1 }
         })
+        this.loadList();
         console.log('click')
 
     };
@@ -46,6 +54,7 @@ class TableContainer extends Component {
         this.setState((state) => {
             return { currentPage: state.currentPage -= 1 }
         })
+        this.loadList();
         console.log('click')
 
     };
@@ -54,6 +63,7 @@ class TableContainer extends Component {
         this.setState((state) => {
             return { currentPage: state.currentPage = 1 }
         })
+        this.loadList();
         console.log('click')
 
     };
@@ -63,23 +73,28 @@ class TableContainer extends Component {
         this.setState(() => {
             return { currentPage: numberOfPages }
         })
+        this.loadList();
         console.log('click')
 
     };
-    componentDidMount() {
+
+    loadList = () => {
         const { numberPerPage, currentPage } = this.state
         let begin = (currentPage - 1) * numberPerPage;
         let end = begin + numberPerPage;
         this.setState(() => {
-            return { pageList: this.props.flatsData.flatsData.slice(begin, end) };
+            return {
+                pageList: this.props.flatsData.flatsData.slice(begin, end),
+                numberOfPages: this.getNumberOfPages()
+            };
         })
-        console.log('loadList')
+        console.log(this.state.numberOfPages)
     };
-    componentDidUpdate() {
+    componentDidMount() {
+        this.getNumberOfPages()
+        this.loadList();
 
-        console.log('update')
-    }
-
+    };
     render() {
         return (
             <section>
@@ -93,10 +108,11 @@ class TableContainer extends Component {
                     data={this.state.pageList}
 
                 />
-                <PaginationWrapper first={this.firstPage} next={this.nextPage} previous={this.previousPage} last={this.lastPage} />
+                <PaginationWrapper first={this.firstPage} next={this.nextPage} previous={this.previousPage} last={this.lastPage} currentPage={this.state.currentPage} numberOfPages={this.state.numberOfPages} />
             </section>
         )
     }
+
 }
 const mapDispatchToProps = dispatch => {
     return {
