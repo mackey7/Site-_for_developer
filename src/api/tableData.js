@@ -9,4 +9,16 @@ export const tableData = [
     { nr: "P14B", floor: "piętro", area: 66.57, garden: 'strych', gardenArea: "15", price: 259500, status: "wolny" },
     { nr: "P15A", floor: "parter", area: 64.32, garden: "ogródek", gardenArea: "31", price: 289500, status: "wolny" },
     { nr: "P15B", floor: "piętro", area: 66.57, garden: 'strych', gardenArea: "15", price: 259500, status: "sprzedany" },
+
+
+    { nr: "P11A", floor: "deded", area: 64.32, garden: "ogródek", gardenArea: "31", price: 289500, status: "wolny" },
+    { nr: "P11B", floor: "deded", area: 66.57, garden: 'strych', gardenArea: "15", price: 259500, status: "rezerwacja" },
+    { nr: "P12A", floor: "deded", area: 64.32, garden: "ogródek", gardenArea: "31", price: 289500, status: "wolny" },
+    { nr: "P12B", floor: "deded", area: 66.57, garden: 'strych', gardenArea: "15", price: 259500, status: "wolny" },
+    { nr: "P13A", floor: "deded", area: 64.32, garden: "ogródek", gardenArea: "31", price: 289500, status: "wolny" },
+    { nr: "P13B", floor: "deded", area: 66.57, garden: 'strych', gardenArea: "15", price: 259500, status: "wolny" },
+    { nr: "P14A", floor: "deded", area: 64.32, garden: "ogródek", gardenArea: "31", price: 289500, status: "wolny" },
+    { nr: "P14B", floor: "deded", area: 66.57, garden: 'strych', gardenArea: "15", price: 259500, status: "wolny" },
+    { nr: "P15A", floor: "deded", area: 64.32, garden: "ogródek", gardenArea: "31", price: 289500, status: "wolny" },
+    { nr: "P15B", floor: "deded", area: 66.57, garden: 'strych', gardenArea: "15", price: 259500, status: "sprzedany" },
 ]

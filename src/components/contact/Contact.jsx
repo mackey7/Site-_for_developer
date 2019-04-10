@@ -7,7 +7,7 @@ const Contact = () => {
             <div className="contact_container">
 
                 <div className="contact_container--about">
-                    <h2><i class="far fa-envelope"></i> KONTAKT</h2>
+                    <h2><i className="far fa-envelope"></i> KONTAKT</h2>
                     <img src={logo} alt="logo" />
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et libero dicta autem illum similique sequi expedita consectetur tenetur maiores, perspiciatis praesentium nobis, earum molestiae nulla architecto, quasi quidem ex? Nesciunt minima cumque, sunt eaque a voluptas officia soluta, amet at tempora doloremque nemo debitis! Voluptatibus quos at, cupiditate nostrum veritatis veniam accusamus distinctio, reprehenderit facilis tempora nemo repudiandae corporis facere.</p>
                 </div>

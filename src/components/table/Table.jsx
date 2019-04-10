@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './table.scss';
 
 
@@ -32,44 +32,44 @@ const Table = (props) => {
                         <th>
                             nr budynku mieszkania
                             <div className="arrow-container">
-                                <i onClick={() => props.sortColumnMinMax('nr')} class="fas fa-long-arrow-alt-up"></i>
-                                <i onClick={() => props.sortColumnMaxMin('nr')} class="fas fa-long-arrow-alt-down"></i>
+                                <i onClick={() => props.sortColumnMinMax('nr')} className="fas fa-long-arrow-alt-up"></i>
+                                <i onClick={() => props.sortColumnMaxMin('nr')} className="fas fa-long-arrow-alt-down"></i>
                             </div>
                         </th>
                         <th >
                             Kondygnacja
                             <div className="arrow-container">
-                                <i onClick={() => props.sortColumnMinMax('floor')} class="fas fa-long-arrow-alt-up"></i>
-                                <i onClick={() => props.sortColumnMaxMin('floor')} class="fas fa-long-arrow-alt-down"></i>
+                                <i onClick={() => props.sortColumnMinMax('floor')} className="fas fa-long-arrow-alt-up"></i>
+                                <i onClick={() => props.sortColumnMaxMin('floor')} className="fas fa-long-arrow-alt-down"></i>
                             </div>
                         </th>
                         <th >
                             powierzchnia użytkowa
                             <div className="arrow-container">
-                                <i onClick={() => props.sortColumnMinMax('area')} class="fas fa-long-arrow-alt-up"></i>
-                                <i onClick={() => props.sortColumnMaxMin('area')} class="fas fa-long-arrow-alt-down"></i>
+                                <i onClick={() => props.sortColumnMinMax('area')} className="fas fa-long-arrow-alt-up"></i>
+                                <i onClick={() => props.sortColumnMaxMin('area')} className="fas fa-long-arrow-alt-down"></i>
                             </div>
                         </th>
                         <th >
                             powierzchnia ogródka / strychu
                             <div className="arrow-container">
-                                <i onClick={() => props.sortColumnMinMax('garden')} class="fas fa-long-arrow-alt-up"></i>
-                                <i onClick={() => props.sortColumnMaxMin('garden')} class="fas fa-long-arrow-alt-down"></i>
+                                <i onClick={() => props.sortColumnMinMax('garden')} className="fas fa-long-arrow-alt-up"></i>
+                                <i onClick={() => props.sortColumnMaxMin('garden')} className="fas fa-long-arrow-alt-down"></i>
                             </div>
                         </th>
                         <th >
                             cenna brutto
                             <div className="arrow-container">
-                                <i onClick={() => props.sortColumnMinMax('price')} class="fas fa-long-arrow-alt-up"></i>
-                                <i onClick={() => props.sortColumnMaxMin('price')} class="fas fa-long-arrow-alt-down"></i>
+                                <i onClick={() => props.sortColumnMinMax('price')} className="fas fa-long-arrow-alt-up"></i>
+                                <i onClick={() => props.sortColumnMaxMin('price')} className="fas fa-long-arrow-alt-down"></i>
                             </div>
                         </th>
                         <th>plan</th>
                         <th >
                             status
                             <div className="arrow-container">
-                                <i onClick={() => props.sortColumnMinMax('status')} class="fas fa-long-arrow-alt-up"></i>
-                                <i onClick={() => props.sortColumnMaxMin('status')} class="fas fa-long-arrow-alt-down"></i>
+                                <i onClick={() => props.sortColumnMinMax('status')} className="fas fa-long-arrow-alt-up"></i>
+                                <i onClick={() => props.sortColumnMaxMin('status')} className="fas fa-long-arrow-alt-down"></i>
                             </div>
                         </th>
 

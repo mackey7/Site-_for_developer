@@ -5,7 +5,7 @@ import Table from '../components/table/Table'
 import PaginationWrapper from '../components/table/PaginationWrapper.jsx'
 
 
-class TableContainer extends React.Component {
+class TableContainer extends Component {
     constructor() {
         super();
         this.state = {
@@ -34,45 +34,51 @@ class TableContainer extends React.Component {
         console.log(e.target.value, key)
         this.props.changePrice(e.target.value, key)
     }
-    nextPage = (loadList) => {
+    nextPage = () => {
         this.setState((state) => {
             return { currentPage: state.currentPage += 1 }
         })
-        loadList();
+        console.log('click')
+
     };
 
-    previousPage = (loadList) => {
+    previousPage = () => {
         this.setState((state) => {
             return { currentPage: state.currentPage -= 1 }
         })
-        loadList();
+        console.log('click')
+
     };
 
-    firstPage = (loadList) => {
+    firstPage = () => {
         this.setState((state) => {
             return { currentPage: state.currentPage = 1 }
         })
-        loadList();
+        console.log('click')
+
     };
 
-    lastPage = loadList => {
+    lastPage = () => {
         const { numberOfPages } = this.state
         this.setState(() => {
             return { currentPage: numberOfPages }
         })
-        loadList();
+        console.log('click')
+
     };
-    loadList = (props) => {
+    componentDidMount() {
         const { numberPerPage, currentPage } = this.state
         let begin = (currentPage - 1) * numberPerPage;
         let end = begin + numberPerPage;
         this.setState(() => {
-            return { pageList: props.flatsData.flatsData(begin, end) };
-        }
-        )
+            return { pageList: this.props.flatsData.flatsData.slice(begin, end) };
+        })
+        console.log('loadList')
     };
+    componentDidUpdate() {
 
-
+        console.log('update')
+    }
 
     render() {
         return (
@@ -84,7 +90,7 @@ class TableContainer extends React.Component {
                     changeFloor={changeFloor}
                     sortColumnMaxMin={sortColumnMaxMin}
                     sortColumnMinMax={sortColumnMinMax}
-                    data={this.props.flatsData.flatsData}
+                    data={this.state.pageList}
 
                 />
                 <PaginationWrapper first={this.firstPage} next={this.nextPage} previous={this.previousPage} last={this.lastPage} />

@@ -5,7 +5,7 @@ const PaginationButton = (props) => {
 
     return (
 
-        <input className="pagination_button" type="button" onclick={props.event} value={props.value} />
+        <input className="pagination_button" type="button" onClick={props.event} value={props.value} />
 
     )
 }

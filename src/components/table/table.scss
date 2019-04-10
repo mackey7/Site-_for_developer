@@ -84,30 +84,32 @@
         }
     }
 
-    .tablePagination {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        margin: 20px;
 
-        .pagination_button {
-            cursor: pointer;
-            margin-right: 20px;
-            font-family: Lato;
-            font-size: 16px;
-            font-weight: 400;
-            padding: 10px;
-            background-color: #e5e5e5;
-            color: #85878d;
-            border: 0;
+}
 
-            &:active {
-                background-color: #00a671;
-                color: #fff;
-            }
+.tablePagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 20px;
+
+    .pagination_button {
+        cursor: pointer;
+        margin-right: 20px;
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 10px;
+        background-color: #e5e5e5;
+        color: #85878d;
+        border: 0;
+
+        &:active {
+            background-color: #00a671;
+            color: #fff;
         }
     }
 }
