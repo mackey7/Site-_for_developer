@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { sortColumnMaxMin, sortColumnMinMax, changeFloor, changeGarden, changeStatus, changePrice } from "../../actions/actions"
-import Pagination from './Pagination.jsx';
+import PaginationWrapper from './PaginationWrapper.jsx';
 import './table.scss';
 
 
@@ -122,7 +122,7 @@ class Table extends React.Component {
 
                         ))}
                     </tbody>
-                    <Pagination items={this.props.flatsData.flatsData} onChangePage={this.onChangePage} />
+                    <PaginationWrapper />
                 </table>
 
 
