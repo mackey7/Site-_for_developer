@@ -1,47 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Plan from './Plan.jsx';
 import Buttons from './Buttons.jsx';
 import DateView from './DateView.jsx';
-import { switchView } from '../../actions/actions';
-import { connect } from "react-redux";
 import './FlatViews.scss';
 
-class FlatViews extends Component {
-
-    changeView = (e) => {
-        console.log(e.target.id)
-        this.props.switchView(e.target.id)
-    }
-    render() {
-        const flatView = this.props.singleFlatViewsDate.singleFlatViewsDate.map(
-            (item, index) => (
-                <div key={index} className='flatViews-container'>
-                    <Plan image={item} />
-                    <div className="flatViews__right">
-                        <Buttons onClick={this.changeView} />
-                        <DateView date={item} />
-                    </div>
+const FlatViews = (props) => {
+    const { date } = props
+    const flatView = date.map(
+        (item, index) => (
+            <div key={index} className='flatViews-container'>
+                <Plan image={item} />
+                <div className="flatViews__right">
+                    <Buttons onClick={props.changeView} />
+                    <DateView date={item} />
                 </div>
-            ))
+            </div>
+        ))
 
 
-        return (
-            <section className="flatViews" >
-                {flatView}
-            </section>
-        )
-    }
-}
-const mapDispatchToProps = dispatch => {
-    return {
-        switchView: e => dispatch(switchView(e))
-    }
-
+    return (
+        <section className="flatViews" >
+            {flatView}
+        </section>
+    )
 }
 
-const mapStateToProps = state => {
-    return {
-        singleFlatViewsDate: state.flatViewsReducer
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(FlatViews);
+export default FlatViews;

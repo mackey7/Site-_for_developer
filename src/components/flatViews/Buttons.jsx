@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from './Button.jsx';
 
 const Buttons = (props) => {
 
     return (
-
-
-
         <div className="buttons">
             <div className="buttons-row">
                 <Button onClick={props.onClick} id='pal' text='Parter Lewy' />
