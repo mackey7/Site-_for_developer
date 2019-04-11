@@ -9,7 +9,6 @@ const Pagination = props => {
             <PaginationButton value="previous" event={props.previous} btnDisable={props.currentPage == 1 ? true : false} />
             <PaginationButton value="next" event={props.next} btnDisable={props.currentPage == props.numberOfPages ? true : false} />
             <PaginationButton value="last" event={props.last} btnDisable={props.currentPage == props.numberOfPages ? true : false} />
-            {console.log('number:' + props.numberOfPages + 'current:' + props.currentPage)}
         </div>
     )
 

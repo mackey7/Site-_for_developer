@@ -6,37 +6,43 @@ import PaginationWrapper from '../components/table/PaginationWrapper.jsx'
 
 
 class TableContainer extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             pageList: [],
             currentPage: 1,
             numberPerPage: 10,
-            numberOfPages: 0
+            numberOfPages: 1
         };
     }
     sortColumnMinMax = (key) => {
         this.props.sortColumnMinMax(key)
+        this.loadList();
     }
     sortColumnMaxMin = (key) => {
         this.props.sortColumnMaxMin(key)
+        this.loadList();
     }
     changeFloor = e => {
         this.props.changeFloor(e.target.value)
+        this.loadList();
     }
     changeGarden = e => {
         this.props.changeGarden(e.target.value)
+        this.loadList();
     }
     changeStatus = e => {
         this.props.changeStatus(e.target.value);
     }
     changePrice = (e, key) => {
-        console.log(e.target.value, key)
+
         this.props.changePrice(e.target.value, key)
+        this.loadList();
     }
 
     getNumberOfPages = () => {
         return Math.ceil(this.props.flatsData.flatsData.length / this.state.numberPerPage);
+
     };
 
 
@@ -46,8 +52,6 @@ class TableContainer extends Component {
             return { currentPage: state.currentPage += 1 }
         })
         this.loadList();
-        console.log('click')
-
     };
 
     previousPage = () => {
@@ -55,8 +59,6 @@ class TableContainer extends Component {
             return { currentPage: state.currentPage -= 1 }
         })
         this.loadList();
-        console.log('click')
-
     };
 
     firstPage = () => {
@@ -64,8 +66,6 @@ class TableContainer extends Component {
             return { currentPage: state.currentPage = 1 }
         })
         this.loadList();
-        console.log('click')
-
     };
 
     lastPage = () => {
@@ -74,37 +74,43 @@ class TableContainer extends Component {
             return { currentPage: numberOfPages }
         })
         this.loadList();
-        console.log('click')
-
     };
 
     loadList = () => {
+        console.log("page list : " + [...this.props.flatsData.flatsData])
         const { numberPerPage, currentPage } = this.state
         let begin = (currentPage - 1) * numberPerPage;
         let end = begin + numberPerPage;
         this.setState(() => {
+
             return {
-                pageList: this.props.flatsData.flatsData.slice(begin, end),
+                pageList: [...this.props.flatsData.flatsData.slice(begin, end)],
                 numberOfPages: this.getNumberOfPages()
+
             };
         })
-        console.log(this.state.numberOfPages)
+
     };
-    componentDidMount() {
-        this.getNumberOfPages()
+
+    componentWillMount() {
         this.loadList();
 
     };
+    componentWillUpdate() {
+
+
+    }
+
     render() {
         return (
             <section>
                 <Table
                     changePrice={this.changePrice}
                     changeStatus={this.changeStatus}
-                    changeGarden={changeGarden}
-                    changeFloor={changeFloor}
-                    sortColumnMaxMin={sortColumnMaxMin}
-                    sortColumnMinMax={sortColumnMinMax}
+                    changeGarden={this.changeGarden}
+                    changeFloor={this.changeFloor}
+                    sortColumnMaxMin={this.sortColumnMaxMin}
+                    sortColumnMinMax={this.sortColumnMinMax}
                     data={this.state.pageList}
 
                 />
