@@ -6,99 +6,93 @@ import PaginationWrapper from '../components/table/PaginationWrapper.jsx'
 
 
 class TableContainer extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             pageList: [],
             currentPage: 1,
             numberPerPage: 10,
-            numberOfPages: 1
+            numberOfPages: 0
         };
     }
-    sortColumnMinMax = (key) => {
-        this.props.sortColumnMinMax(key)
-        this.loadList();
-    }
-    sortColumnMaxMin = (key) => {
-        this.props.sortColumnMaxMin(key)
-        this.loadList();
-    }
+    sortColumnMinMax = key => {
+        this.props.sortColumnMinMax(key);
+    };
+    sortColumnMaxMin = key => {
+        this.props.sortColumnMaxMin(key);
+    };
     changeFloor = e => {
-        this.props.changeFloor(e.target.value)
-        this.loadList();
-    }
+        console.log(e.target.value)
+        this.props.changeFloor(e.target.value);
+    };
     changeGarden = e => {
-        this.props.changeGarden(e.target.value)
-        this.loadList();
-    }
+        this.props.changeGarden(e.target.value);
+    };
     changeStatus = e => {
         this.props.changeStatus(e.target.value);
-    }
+    };
     changePrice = (e, key) => {
-
-        this.props.changePrice(e.target.value, key)
-        this.loadList();
-    }
-
-    getNumberOfPages = () => {
-        return Math.ceil(this.props.flatsData.flatsData.length / this.state.numberPerPage);
-
+        console.log(e.target.value, key);
+        this.props.changePrice(e.target.value, key);
     };
 
-
+    getNumberOfPages = (flatsData) => {
+        return Math.ceil(
+            flatsData.length / this.state.numberPerPage
+        );
+    };
 
     nextPage = () => {
-        this.setState((state) => {
-            return { currentPage: state.currentPage += 1 }
+        this.setState({
+            currentPage: this.state.currentPage += 1
         })
-        this.loadList();
+        this.loadList(this.state.currentPage, this.props.flatsData.flatsData);
     };
 
     previousPage = () => {
-        this.setState((state) => {
-            return { currentPage: state.currentPage -= 1 }
+        this.setState({
+            currentPage: this.state.currentPage -= 1
         })
-        this.loadList();
+        this.loadList(this.state.currentPage, this.props.flatsData.flatsData);
     };
 
     firstPage = () => {
-        this.setState((state) => {
-            return { currentPage: state.currentPage = 1 }
-        })
+        this.setState(state => {
+            return { currentPage: 1 };
+        });
         this.loadList();
     };
 
     lastPage = () => {
-        const { numberOfPages } = this.state
+        const { numberOfPages } = this.state;
         this.setState(() => {
-            return { currentPage: numberOfPages }
-        })
+            return { currentPage: numberOfPages };
+        });
         this.loadList();
     };
 
-    loadList = () => {
-        console.log("page list : " + [...this.props.flatsData.flatsData])
-        const { numberPerPage, currentPage } = this.state
-        let begin = (currentPage - 1) * numberPerPage;
+    loadList = (actualPage, flatsData) => {
+        const { numberPerPage } = this.state;
+        let begin = (actualPage - 1) * numberPerPage;
         let end = begin + numberPerPage;
+        const flatsDatas = flatsData
+
         this.setState(() => {
-
             return {
-                pageList: [...this.props.flatsData.flatsData.slice(begin, end)],
-                numberOfPages: this.getNumberOfPages()
-
+                pageList: flatsDatas.slice(begin, end),
+                numberOfPages: this.getNumberOfPages(flatsDatas)
             };
-        })
-
+        });
     };
 
-    componentWillMount() {
-        this.loadList();
+    componentDidMount() {
+        this.getNumberOfPages(this.props.flatsData.flatsData);
+        this.loadList(1, this.props.flatsData.flatsData);
+    }
 
-    };
-    componentWillUpdate() {
-
-
+    componentWillReceiveProps(nextProps) {
+        this.getNumberOfPages(nextProps.flatsData.flatsData);
+        this.loadList(1, nextProps.flatsData.flatsData)
     }
 
     render() {
@@ -112,13 +106,18 @@ class TableContainer extends Component {
                     sortColumnMaxMin={this.sortColumnMaxMin}
                     sortColumnMinMax={this.sortColumnMinMax}
                     data={this.state.pageList}
-
                 />
-                <PaginationWrapper first={this.firstPage} next={this.nextPage} previous={this.previousPage} last={this.lastPage} currentPage={this.state.currentPage} numberOfPages={this.state.numberOfPages} />
+                <PaginationWrapper
+                    first={this.firstPage}
+                    next={this.nextPage}
+                    previous={this.previousPage}
+                    last={this.lastPage}
+                    currentPage={this.state.currentPage}
+                    numberOfPages={this.state.numberOfPages}
+                />
             </section>
-        )
+        );
     }
-
 }
 const mapDispatchToProps = dispatch => {
     return {
@@ -128,7 +127,6 @@ const mapDispatchToProps = dispatch => {
         changeGarden: e => dispatch(changeGarden(e)),
         changeStatus: e => dispatch(changeStatus(e)),
         changePrice: (e, key) => dispatch(changePrice(e, key))
-
     }
 }
 const mapStateToProps = state => {
