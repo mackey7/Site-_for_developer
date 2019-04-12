@@ -1,11 +1,12 @@
 import { SWITCH_VIEW } from '../actions/actions-type/actions-type';
-import { flatViewsDate } from '../api/flatViewsDate'
+import { flatViewsDate } from '../api/flatViewsDate';
+import image_2 from "../images/apartment_projections_img.png";
 
 const initState = {
     flatViewsDate: flatViewsDate,
     singleFlatViewsDate: [{
         id: "pal",
-        image: 'https://i.ibb.co/VqSPh8n/apartment-projections-img.png',
+        image: image_2,
         room1: {
             id: 1,
             name: "salon z aneksem kuchannym",
