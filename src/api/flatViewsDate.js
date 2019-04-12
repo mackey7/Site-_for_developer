@@ -1,7 +1,12 @@
+import image_1 from "../images/apartment_projections_pip_img.png";
+
+
+import image_2 from "../images/apartment_projections_img.png";
+
 export const flatViewsDate = [
     {
         id: "pal",
-        image: 'https://i.ibb.co/VqSPh8n/apartment-projections-img.png',
+        image: image_2,
         room1: {
             id: 1,
             name: "salon z aneksem kuchannym",
@@ -40,7 +45,7 @@ export const flatViewsDate = [
     },
     {
         id: "pap",
-        image: 'https://cdn3.imggmi.com/uploads/2019/3/19/3d797bbec7c4ef92d067117c7868dff8-full.png',
+        image: image_1,
         room1: {
             id: 1,
             name: "salon z aneksem kuchannym",
@@ -79,7 +84,7 @@ export const flatViewsDate = [
     },
     {
         id: "pil",
-        image: 'https://i.ibb.co/VqSPh8n/apartment-projections-img.png',
+        image: image_2,
         room1: {
             id: 1,
             name: "salon z aneksem kuchannym",
@@ -118,7 +123,7 @@ export const flatViewsDate = [
     },
     {
         id: "pip",
-        image: 'https://i.ibb.co/VqSPh8n/apartment-projections-img.png',
+        image: image_1,
         room1: {
             id: 1,
             name: "salon z aneksem kuchannym",
