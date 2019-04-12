@@ -1,20 +1,22 @@
-import slid from "../images/slider_img.png";
+import image_1 from "../images/slider_img_1.jpg";
+import image_2 from "../images/slider_img_2.jpg";
+import image_3 from "../images/slider_img_3.jpg";
 
 
 export const SlidesData = [
     {
         img:
-            slid,
+            image_1,
         alt: "zdjęcie"
     },
     {
         img:
-            slid,
+            image_2,
         alt: "zdjęcie"
     },
     {
         img:
-            slid,
+            image_3,
         alt: "zdjęcie"
     },
 
