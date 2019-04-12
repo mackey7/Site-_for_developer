@@ -134,6 +134,7 @@
         &:disabled {
             color: #85878d;
             font-weight: 400;
+            cursor: initial;
         }
     }
 }
@@ -156,7 +157,6 @@
         th,
         td,
         tr {
-            width: 100%;
             display: block;
         }
 
@@ -167,52 +167,50 @@
         }
 
         tr {
-            border: 1px solid #ccc;
+            border: 1px solid rgb(12, 12, 12);
+            margin-top: 20px;
+
         }
 
         td {
             border: none;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            padding-left: 50%;
+            border-bottom: 1px solid rgb(170, 166, 166);
             border: 1px solid #ccc;
+
         }
 
         td:before {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            width: 45%;
-            padding-right: 10px;
+            padding-left: 20px;
             white-space: nowrap;
+            font-weight: 700;
         }
 
         td:nth-of-type(1):before {
-            content: "nr budynku mieszkania";
+            content: "nr budynku mieszkania: ";
         }
 
         td:nth-of-type(2):before {
-            content: "Kondygnacja";
+            content: "Kondygnacja: ";
         }
 
         td:nth-of-type(3):before {
-            content: "Powierzchnia użytkowa";
+            content: "Powierzchnia użytkowa: ";
         }
 
         td:nth-of-type(4):before {
-            content: "powierzchnia ogródka / strychu";
+            content: "powierzchnia ogródka / strychu: ";
         }
 
         td:nth-of-type(5):before {
-            content: "cena brutto";
+            content: "cena brutto: ";
         }
 
         td:nth-of-type(6):before {
-            content: "plan";
+            content: "plan: ";
         }
 
         td:nth-of-type(7):before {
-            content: "status";
+            content: "status: ";
         }
     }
 }
