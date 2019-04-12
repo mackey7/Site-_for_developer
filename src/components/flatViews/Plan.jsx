@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 const Plan = (props) => {
 
     return (
@@ -9,5 +9,7 @@ const Plan = (props) => {
 
     )
 }
-
+Plan.propTypes = {
+    image: PropTypes.object,
+}
 export default Plan;

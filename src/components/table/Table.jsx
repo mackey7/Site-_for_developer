@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './table.scss';
 
 
@@ -107,5 +108,14 @@ const Table = (props) => {
         </div >
     )
 }
+Table.propTypes = {
+    data: PropTypes.array,
+    sortColumnMinMax: PropTypes.func,
+    sortColumnMaxMin: PropTypes.func,
+    changePrice: PropTypes.func,
+    changeStatus: PropTypes.func,
+    changeGarden: PropTypes.func,
+    changeFloor: PropTypes.func,
 
+}
 export default Table;

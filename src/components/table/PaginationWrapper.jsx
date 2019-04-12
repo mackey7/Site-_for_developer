@@ -1,5 +1,6 @@
 import React from 'react';
 import PaginationButton from './PaginagtionButton'
+import PropTypes from 'prop-types';
 import "./table.scss"
 
 const Pagination = props => {
@@ -12,5 +13,13 @@ const Pagination = props => {
         </div>
     )
 
+}
+Pagination.propTypes = {
+    first: PropTypes.func,
+    previous: PropTypes.func,
+    next: PropTypes.func,
+    last: PropTypes.func,
+    currentPage: PropTypes.number,
+    numberOfPages: PropTypes.number,
 }
 export default Pagination

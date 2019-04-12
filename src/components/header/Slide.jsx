@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Slide extends Component {
     render() {
@@ -14,4 +15,9 @@ export default class Slide extends Component {
             </li>
         )
     }
+}
+Slide.propTypes = {
+    index: PropTypes.number,
+    activeIndex: PropTypes.number,
+    slide: PropTypes.object
 }

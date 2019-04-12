@@ -1,18 +1,23 @@
 
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class SliderLeftArrow extends Component {
-    render() {
-        return (
-            <div className='arrowContainer-left'>
-                <a
-                    href="#"
-                    className="slider_arrow-left"
-                    onClick={this.props.onClick}
-                >
-                    <span className="fa fa-3x fa-angle-left" />
-                </a>
-            </div>
-        )
-    }
+
+const SliderLeftArrow = props => {
+
+    return (
+        <div className='arrowContainer-left'>
+            <a
+                href="#"
+                className="slider_arrow-left"
+                onClick={props.onClick}
+            >
+                <span className="fa fa-3x fa-angle-left" />
+            </a>
+        </div>
+    )
 }
+SliderLeftArrow.propTypes = {
+    onClick: PropTypes.func
+}
+export default SliderLeftArrow

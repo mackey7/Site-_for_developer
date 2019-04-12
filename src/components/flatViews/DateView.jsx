@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const DateView = (props) => {
 
@@ -47,5 +48,7 @@ const DateView = (props) => {
         </div>
     )
 }
-
+DateView.propTypes = {
+    date: PropTypes.object
+}
 export default DateView;

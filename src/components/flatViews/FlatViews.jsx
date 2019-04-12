@@ -3,6 +3,7 @@ import Plan from './Plan.jsx';
 import Buttons from './Buttons.jsx';
 import DateView from './DateView.jsx';
 import './FlatViews.scss';
+import PropTypes from 'prop-types';
 
 const FlatViews = (props) => {
     const { date } = props
@@ -24,5 +25,8 @@ const FlatViews = (props) => {
         </section>
     )
 }
-
+FlatViews.propTypes = {
+    date: PropTypes.array,
+    changeView: PropTypes.func
+}
 export default FlatViews;

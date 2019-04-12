@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Link = (props) => {
     return (
@@ -9,5 +10,8 @@ const Link = (props) => {
 
         </ul>
     )
+}
+Link.propTypes = {
+    link: PropTypes.array,
 }
 export default Link
